@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div>
+    <nav class="navbar navbar-expand navbar-dark" style="background-color: #49506c
+    ;">
+    <a href="#/home" class="navbar-brand">  <img src="./assets/img/logo4.png"></a>
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <li class="nav-item">
+        <a href="/browse" class="nav-link" *ngIf="isLoggedIn" routerLink="browse">Browse </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/wishlist" class="nav-link" *ngIf="isLoggedIn" routerLink="wishlist">Wishlist</a>
+      </li>
+      <li class="nav-item">
+        <a href="/features" class="nav-link" routerLink="features">Features</a>
+      </li>
+      <li class="nav-item" *ngIf="showAdminBoard">
+        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+      </li>
+    </ul>
+
+
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <a href="/register" class="nav-link" routerLink="register">Register</a>
+      </li>
+      <li class="nav-item">
+        <a href="/login" class="nav-link" routerLink="login">Login</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <li class="nav-item">
+        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+      </li>
+      <li class="nav-item">
+        <a href class="nav-link" (click)="logout()">LogOut</a>
+      </li>
+    </ul>
+  </nav>
+  
+
+
+  <div class="container">
+    <router-outlet></router-outlet>
+    <app-footer *ngIf="checkHomeRoute()"></app-footer>
+  </div>
+
+
+
+
+
+</div>

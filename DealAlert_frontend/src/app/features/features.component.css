@@ -1,0 +1,9 @@
+.header-text{
+    width: 100%;
+    background-color: #fff;
+    margin: auto;
+    display: grid;
+    text-align: center;
+    padding-bottom: 1%;
+    padding-top:1%;
+  }

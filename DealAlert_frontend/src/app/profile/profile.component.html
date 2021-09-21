@@ -1,0 +1,21 @@
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div class="header-text">
+  <h3>
+    <strong>{{ currentUser.username }}'s  Profile</strong>
+  </h3>
+</div>
+
+<div class="card">
+  
+  <img src="{{currentUser?.imageURL}}" style="width:100%">
+  <p><i class="fa fa-user fa-2x"></i> {{currentUser.username}}</p>
+  <p><i class="fa fa-envelope fa-2x"></i> {{currentUser.email}}</p>
+  
+  <div *ngIf="currentUser.roles.includes('ROLE_ADMIN'); then thenBlock else elseBlock"></div>
+<ng-template #thenBlock><p><i class="fa fa-key fa-2x"></i>Permissions: Admin</p></ng-template>
+<ng-template #elseBlock><p><i class="fa fa-key fa-2x"></i>Permissions: User</p></ng-template>
+</div>
+
+

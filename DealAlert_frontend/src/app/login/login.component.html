@@ -1,0 +1,69 @@
+<div>
+  <div >
+
+    <form
+      *ngIf="!isLoggedIn"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="login-block">
+        <h1>Login</h1>
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          placeholder="username"
+          class="form-control"
+          name="username"
+          [(ngModel)]="form.username"
+          required
+          #username="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="username.errors && f.submitted"
+        >
+          Username is required!
+        </div>
+
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="password.errors && f.submitted"
+        >
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">
+            Password must be at least 6 characters
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-block">
+          Login
+        </button>
+
+        <div class="switch"> <a href="#/register">Create new account!</a> </div>
+        
+
+      </div>
+
+      
+    </form>
+
+    
+  </div>
+</div>

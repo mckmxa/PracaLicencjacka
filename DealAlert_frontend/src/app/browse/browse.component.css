@@ -1,0 +1,98 @@
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: auto;
+    margin-bottom: 50px;
+    text-align: center;
+    font-family: arial;
+
+  }
+
+  .price {
+    color: grey;
+    font-size: 22px;
+  }
+  
+  .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .card button:hover {
+    opacity: 0.7;
+  }
+
+  .grid-container {
+    display: grid;
+    padding-top: 5%;
+    grid-gap: 50px;
+    grid-template-columns: auto auto auto auto;
+    font-size: 13px;;
+
+  }
+
+
+  
+
+  body{
+    background: #f2f2f2;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .search {
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+  
+  .searchTerm {
+    width: 100%;
+    border: 3px solid #111;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+  }
+  
+  .searchTerm:focus{
+    color: #00B4CC;
+  }
+  
+  .searchButton {
+    width: 40px;
+    height: 40x;
+    border: 1px solid #111;
+    background: #111;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .search-container{
+    height: 50px;
+    width: 50%;
+	padding-top: 10px;
+    background-color: #fff;
+    margin: auto;
+    display: grid;
+  }
+
+  .pagination{
+    margin:auto;
+    padding-top: 2%;
+  }
+
+  .pagination-size{
+    margin:auto;
+  }

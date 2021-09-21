@@ -1,0 +1,38 @@
+.button-container{
+    height: 100px;
+    width: 50%;
+    background-color: #fff;
+    margin: auto;
+    display: grid;
+  }
+
+.fetchButton {
+	color: #fff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #49506c;
+	padding: 20px;
+	border-radius: 5px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+    margin: auto;
+}
+
+
+.fetchButton:hover {
+	background: #434343;
+	letter-spacing: 1px;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+}
+.search-container{
+    height: 50px;
+    width: 50%;
+	padding-top: 10px;
+    background-color: #fff;
+    margin: auto;
+    display: grid;
+  }

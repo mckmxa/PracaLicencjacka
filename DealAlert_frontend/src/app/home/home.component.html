@@ -1,0 +1,48 @@
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div>
+  <a href="#/browse"><img src="./assets/img/banner6.jpg" class="image-container"></a>
+</div>
+<p class="motto">Find the lowest prices</p>
+
+
+<div class="row">
+  <div class="col-sm-3 col-md-6">
+    <div class="row">
+      <div class="column column-block small-3">
+        <i class="fas fa-bullhorn fa-4x"></i>
+      </div>
+      <div class="column column-block small-9">
+        <h4>Price Drop Alerts</h4>
+        <p>Create wishlists and get alerts via email when prices drop.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-9 col-md-6">
+    <div class="row">
+      <div class="column column-block small-3">
+        <i class="fas fa-chart-line fa-4x"></i>
+      </div>
+      <div class="column column-block small-9">
+        <h4>Price History Charts</h4>
+        <p>View the price history of Amazon products as graphs.</p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+<div *ngIf="isLoggedIn" class="button-container">
+  <button (click)="goBrowse()" class="createAccButton">Browse products</button>
+    <small><a href="#/wishlist" class="grey">...or check your wishlist here.</a></small>
+</div>
+
+<div *ngIf="!isLoggedIn" class="button-container">
+  <button (click)="goRegister()" class="createAccButton">Create free account</button>
+  
+  <p>
+    <small><a href="#/features" class="grey">...or read about our features here.</a></small>
+  </p>
+</div>

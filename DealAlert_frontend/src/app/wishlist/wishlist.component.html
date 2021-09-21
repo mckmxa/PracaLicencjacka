@@ -1,0 +1,61 @@
+
+<div class="header-text" *ngIf="true">
+    <h3>
+      <strong>Your wishlist</strong>
+    </h3>
+  </div>
+<div class="clearButton">
+    <button (click)="clearList()">CLEAR LIST</button> 
+</div>
+
+<div *ngFor="let item of items; let i = index" class="card mt-3">
+    {{ item.name }},
+    ${{ item.price }}
+    
+    
+            <div class="btn-group">
+              <img src = "{{ item.imageURL }}">
+                <input id="myNum" onfocus="this.value=''" type="number" placeholder="alert price threshold" #valueAlert>
+            <button (click)="remove(item.id)"><i class="fa fa-times float-right fa-lg"></i></button>
+            <button (click)="retrieveHistory(item.id)"><i class="fa fa-history float-right fa-lg"></i></button>
+            <button (click)="startTracking(item.id,valueAlert)"><i class="fa fa-bell float-right fa-lg"></i></button>
+            <button id="stop" (click)="stopTracking(item.id)"><i class="fa fa-bell-slash float-right fa-lg"></i></button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div *ngIf="status[i]; then thenBlock else elseBlock"></div>
+            <ng-template #thenBlock><i class="fa fa-bell float-right fa-lg"></i></ng-template>
+            <ng-template #elseBlock><i class="fa fa-bell-slash float-right fa-lg"></i></ng-template>
+            </div>
+            <div *ngIf="status[i]; then firstBlock else secondBlock"></div>
+  <ng-template #firstBlock><strong>You will be alerted if the price goes below: ${{alerts[i]?.alertPrice}}</strong></ng-template>
+  <ng-template #secondBlock></ng-template>
+
+
+</div>
+
+
+<div class="chart" *ngIf="history[0]">
+  <ngx-charts-bar-vertical 
+  [view]="[1000,300]"
+  [results]="array"
+  [legendTitle]="'Date'"
+  [yAxisLabel]="'Price'"
+  [legend]="true"
+  [showXAxisLabel]="true"
+  [showYAxisLabel]="true"
+  [xAxis]="true"
+  [yAxis]="true"
+  [gradient]="true">
+  </ngx-charts-bar-vertical> 
+</div>
+
+<!--
+
+<div class="keyvalue" *ngFor="let h of history[0]?.datePrice | keyvalue">
+  <div *ngIf="h.key !== null">
+   <p>
+    <strong>{{ h.key }}: </strong> ${{ h.value }}
+   </p>
+  </div>
+</div>
+
+-->

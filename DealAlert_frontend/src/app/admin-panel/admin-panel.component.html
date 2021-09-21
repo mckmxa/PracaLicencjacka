@@ -1,0 +1,100 @@
+
+
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<form class="search-container">
+   <input type="search" (ngModelChange)="searchUsers(key.value)" #key="ngModel" ngModel
+    name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search users..." required>
+</form>
+
+<div class="button-container"> 
+   <button (click)="updateDB()" class="fetchButton">Update items from AMAZON</button>
+</div>
+
+<div class="container" id="main-container">
+   
+        <div class="row">
+          <div *ngFor="let user of users" class="col-md-6 col-xl-3">
+             <div class="card m-b-30 mt-3">
+                <div class="card-body row">
+                   <div class="col-6 card-title align-self-center mb-0">
+                      <h5>{{user?.username}}</h5>
+                   </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                   <li class="list-group-item"><i class="fa fa-envelope float-right"></i>{{user?.email}}</li>
+                   <div *ngIf="(user.roles[0]?.name === 'ROLE_ADMIN' || user.roles[1]?.name === 'ROLE_ADMIN'); then thenBlock else elseBlock"></div>
+                   <ng-template #thenBlock><li class="list-group-item">Permissions: Admin<i class="fa fa-key float-right"></i></li></ng-template>
+                   <ng-template #elseBlock><li class="list-group-item">Permissions: User<i class="fa fa-key float-right"></i></li></ng-template>
+                </ul>
+                <div class="card-body">
+                   <div class="float-right btn-group btn-group-sm">
+                      <a (click)="onOpenModal(user, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil-alt"></i> </a>
+                      <a (click)="onOpenModal(user, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fas fa-times"></i></a>
+                   </div>
+                </div>
+             </div>
+          </div>
+        </div>
+
+        <!-- Edit Modal -->
+<div class="modal fade" id="updateUserModal" tabindex="-1" role="dialog" aria-labelledby="userEditModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <h5 class="modal-title" id="updateUserModalLabel">Edit User {{editUser?.username}}</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+                 </button>
+              </div>
+              <div class="modal-body">
+                 <form #editForm="ngForm">
+                    <div class="form-group">
+                       <label for="name">Name</label>
+                       <input type="text" ngModel="{{editUser?.username}}" name="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Name">
+                    </div>
+                    <input type="hidden" ngModel="{{editUser?.id}}" name="id" class="form-control" id="id" placeholder="Email">
+                    <div class="form-group">
+                       <label for="email">Email Address</label>
+                       <input type="email" ngModel="{{editUser?.email}}" name="email" class="form-control" id="email" placeholder="Email">
+                    </div>
+                    <div class="modal-footer">
+                       <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                       <button (click)="onUpdateUser(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+                    </div>
+                 </form>
+              </div>
+           </div>
+        </div>
+      </div>
+      
+      <!-- Delete Modal -->
+      <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <h5 class="modal-title" id="deleteModelLabel">Delete User</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+                 </button>
+              </div>
+              <div class="modal-body">
+                 <p>Are you sure you want to delete user {{deleteUser?.username}}?</p>
+                 <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button (click)="onDeleteUser(deleteUser?.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+                 </div>
+              </div>
+           </div>
+        </div>
+      </div>
+      </div>
+      
+      <!-- Notification for no users -->
+      <div *ngIf="users?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+      <div class="alert alert-info" role="alert">
+        <h4 class="alert-heading">NO USERS!</h4>
+        <p>No Users were found.</p>
+      </div>
+      </div>

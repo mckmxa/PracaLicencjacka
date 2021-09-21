@@ -1,0 +1,49 @@
+<main>
+
+
+<div class="search-container">
+  <div class="search">
+    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="name" />
+    <button type="button" class="searchButton" (click)="searchName()">
+      <i class="fa fa-search"></i>
+    </button>
+  </div>
+</div>
+
+
+<div class="pagination">
+  <pagination-controls
+    previousLabel="Prev"
+    nextLabel="Next"
+    [responsive]="true"
+    (pageChange)="handlePageChange($event)"
+  ></pagination-controls>
+  <div class="pagination-size">
+    Items per Page: 
+    <select (change)="handlePageSizeChange($event)">
+      <option *ngFor="let size of pageSizes" [ngValue]="size">
+        {{ size }}
+      </option>
+    </select>
+  </div>
+</div>
+
+
+<div class="grid-container">
+
+  <div class="card" *ngFor="let item of items | paginate : {
+          itemsPerPage: pageSize,
+          currentPage: page,
+          totalItems: count
+        }; 
+        let i = index"
+        >
+    <img src="{{item.imageURL}}" >
+    <strong> {{ item.name }} </strong>
+    <p class="price"> ${{ item.price }}</p>
+    <p>{{ item.description }}</p>
+    <p><button (click)="addToList(item.id)">Add to wishlist</button></p>
+  </div>
+
+</div>
+</main>

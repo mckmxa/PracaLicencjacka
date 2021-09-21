@@ -1,0 +1,99 @@
+.keyvalue {
+    font-size: large;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+
+.clearButton button {
+	color: #fff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #49506c;
+	padding: 20px;
+	border-radius: 5px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+    margin: auto;
+}
+
+
+.clearButton button:hover {
+	background: #434343;
+	letter-spacing: 1px;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+}
+
+
+.header-text{
+    width: 100%;
+    background-color: #fff;
+    margin: auto;
+    display: grid;
+    text-align: center;
+    padding-top: 2%;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: auto;
+    align-items: center;
+    text-align: center;
+    border: none;
+    width:600px;
+  }
+
+  img {
+    border: 1px solid #ddd; /* Gray border */
+    border-radius: 4px;  /* Rounded border */
+    width: 60px; /* Set a small width */
+    height: 50px;
+    float:left;
+  }
+
+  input[type="number"] {
+    width:200px;
+    height: 50px;
+ }
+
+  .btn-group button {
+    background-color: #49506c;
+    border: 1px solid #34384c;
+    color: white;
+    padding: 10px 24px;
+    cursor: pointer;
+    float: right;
+ }
+
+.btn-group button:not(:last-child) {
+  border-right: none;
+}
+
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #34384c;
+}
+
+  .chart {
+    padding-top: 3%;
+    padding-bottom: 25%;
+  }
+
+  .keyvalue {
+    text-align: center;
+  }
+  
+  /* Add a hover effect (blue shadow) */
+  img:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  }

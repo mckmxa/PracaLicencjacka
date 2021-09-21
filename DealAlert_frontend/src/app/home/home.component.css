@@ -1,0 +1,79 @@
+.image-container {
+    box-sizing: inherit;
+    position: relative;
+    padding-top: 3%;
+    background-size: cover;
+    background-position: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    max-height: 400px;
+    clear: both;
+    width: 100%;
+    max-width: inherit;
+    margin: 0;
+    object-fit: cover;
+}
+
+.motto {
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    margin: 30px 0 35px;
+    padding: 0;
+}
+
+.list {
+    text-align: center;
+    font-style: oblique;
+}
+
+.button-container{
+    height: 100px;
+    width: 50%;
+    background-color: #fff;
+    margin: auto;
+    display: grid;
+    text-align: center;
+  }
+
+.createAccButton {
+	color: #fff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #49506c;
+	padding: 20px;
+	border-radius: 5px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+    margin: auto;
+    
+}
+
+
+.createAccButton:hover {
+	background: #434343;
+	letter-spacing: 1px;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+}
+
+.row {
+    margin: 0;
+    padding:0;
+    font-size: 14px;
+    
+}
+
+.grey {
+    color: #a19b86;
+}
+
+i{
+    padding-right: 10px;
+}
